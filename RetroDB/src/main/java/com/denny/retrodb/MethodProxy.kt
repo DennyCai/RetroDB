@@ -30,6 +30,11 @@ class MethodProxy private constructor(val helper:SQLiteOpenHelper,val table:Stri
         val columns = select.clounm.joinToString(",")
         val parAns = method.parameterAnnotations
         checkSelectAnns(method,parAns)
+        if(args!=null) {
+            for (i in 0..args.size) {
+
+            }
+        }
 
         var sql = "SELECT ${columns} FROM ${table} WHERE "
     }
