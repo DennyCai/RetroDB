@@ -5,19 +5,19 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import android.util.Log
 
 /**
  * Created by hasee on 2016/11/23.
  */
 class InitDbProvider : ContentProvider() {
-    var CONTEXT : Context = null!!
 
     companion object {
 
-        private var CONTEXT: Context = null!!
+        private var CONTEXT: Context? = null
 
         fun getContext(): Context {
-            return CONTEXT;
+            return CONTEXT!!
         }
     }
 
@@ -30,6 +30,7 @@ class InitDbProvider : ContentProvider() {
     }
 
     override fun onCreate(): Boolean {
+        Log.e("Provider","init")
         CONTEXT = context.applicationContext
         return true
     }
