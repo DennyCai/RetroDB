@@ -1,6 +1,7 @@
 package com.denny.retrodb
 
 import android.database.Cursor
+import android.database.CursorWindow
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.denny.retrodb.annotation.Field
@@ -32,7 +33,6 @@ class MethodProxy(val helper: SQLiteOpenHelper, val table: String) {
         val where = resloveSelection(select.where, argsSet)
 
         Log.i(MethodProxy::class.java.simpleName, "SELECT ${table} WHERE $where")
-
         return helper.readableDatabase.query(table, select.clounm, where, null, null, null, null)
     }
 
